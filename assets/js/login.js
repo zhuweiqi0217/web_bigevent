@@ -37,14 +37,17 @@ $(function () {
     // 1.先阻止表单的默认提交行为
     e.preventDefault()
     // 2.发起post请求
-    let data = {
-      username: $('#form_reg [name=username]').val(),
-      password: $('#form_reg [name=password]').val()
-    }
+    // let data = {
+    //   username: $('#form_reg [name=username]').val(),
+    //   password: $('#form_reg [name=password]').val()
+    // }
     $.ajax({
       method: 'POST',
       url: '/api/reguser',
-      data,
+      data: {
+        username: $('#form_reg [name=username]').val(),
+        password: $('#form_reg [name=password]').val()
+      },
       success(res) {
         if (res.status !== 0) return layer.msg(res.message)
         layer.msg(res.message)
@@ -54,22 +57,22 @@ $(function () {
     })
   })
   // 监听登录表单的提交事件
-  $('#form_login').submit(function(e){
+  $('#form_login').submit(function (e) {
     // 阻止表单的默认提交行为
     e.preventDefault()
     $.ajax({
-      method:'POST',
-      url:'/api/login',
+      method: 'POST',
+      url: '/api/login',
       // 快速获取表单中的数据
-      data:$(this).serialize(),
-      success(res){
-        if(res.status !== 0) return layer.msg(res.message)
+      data: $(this).serialize(),
+      success(res) {
+        if (res.status !== 0) return layer.msg(res.message)
         layer.msg(res.message)
-        // console.log(res.token)
+        console.log(res.token)
         // 将登陆成功得到的 token 字符串,保存到 localStorage 中
-        localStorage.setItem('token',res.token)
+        localStorage.setItem('token', res.token)
         // 跳转到后台主页
-        // location.href = 'index.html'
+        location.href = 'index.html'
       }
     })
   })
