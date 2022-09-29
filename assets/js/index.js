@@ -30,7 +30,7 @@ function getUserInfo() {
     // },
     success(res) {
       console.log(res)
-      if (res.status !== 0) return layui.layer.msg(res.message)
+      if (res.status !== 0) return layer.msg(res.message)
       // 调用 renderAvatar 渲染用户的头像
       renderAvatar(res.data)
     },
