@@ -17,6 +17,10 @@ body {
   width: 500px;
 }
 
+#file {
+  display: none;
+}
+
 /* 设置卡片主体区域的宽度 */
 .layui-card-body {
   width: 500px;

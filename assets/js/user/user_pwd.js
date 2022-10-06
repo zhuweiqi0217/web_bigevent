@@ -25,6 +25,8 @@ $(function () {
         layer.msg(res.message)
         // DOM原生方法重置表单
         $('.layui-form')[0].reset()
+        // 也可以通过调用重置按钮来实现
+        // $('#btnReset').click()       // 通过调用 type="reset" 按钮
       }
     })
   })
