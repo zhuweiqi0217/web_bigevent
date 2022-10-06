@@ -32,6 +32,7 @@ a{
   text-align: center;
   font-size: 12px;
   user-select: none;
+  /* user-select: none 使文本图片只读无法选中 */
 }
 
 .layui-side-scroll .userinfo {
@@ -41,9 +42,12 @@ a{
 .layui-nav-img{
   width: 40px;
   height: 40px;
+  display: none;
+  /* 先让文字头像和图片头像都先隐藏,等js来判断应该显示那个 */
 }
 
 .text-avatar {
+  display: none;
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -56,4 +60,5 @@ a{
   position: relative;
   top: 4px;
   margin-right: 10px;
+  /* display: none; */
 }

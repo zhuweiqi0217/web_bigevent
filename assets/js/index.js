@@ -8,14 +8,16 @@ $(function () {
   $('#btnLogout').on('click', function () {
     // console.log('ok')
     // 提示用户是否退出
+    // 也可以通过 DOM 原生的confirm来实现
     layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function (index) {
       // 1.清空本地存储中的 token
       localStorage.removeItem('token')
+      // localStorage.clear()   清空本地储存所有
       // 2.重新跳转到登录页面
       location.href = '/login.html'
 
       // 关闭 confirm 询问框
-      layer.close(index);
+      layer.close(index)
     })
   })
 })
@@ -64,6 +66,8 @@ function renderAvatar(user) {
     // 3.2 渲染文本头像
     $('.layui-nav-img').hide()
     let first = name[0].toUpperCase()
+    // 获取文字头像第一个字母的第二种方法 charAt
+    // const char = name.charAt(0)toUpperCase()
     $('.text-avatar').html(first).show()
   }
 }

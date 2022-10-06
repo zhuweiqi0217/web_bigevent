@@ -20,13 +20,14 @@
       <!-- form 表单区域 -->
       <form class="layui-form" lay-filter="formUserInfo">
         <!-- 隐藏域 -->
-        <input type="hidden" name="id"/>
+        <input type="hidden" name="id" />
         <div class="layui-form-item">
           <label class="layui-form-label">登录名称</label>
           <div class="layui-input-block">
             <input type="text" name="username" required lay-verify="required" placeholder="请输入登录名称" autocomplete="off"
               class="layui-input" readonly />
-            <!-- readonly只读属性,加上之后输入框只可读,无法输入 -->
+            <!-- readonly只读属性,加上之后输入框只可读,无法输入 
+                 disabled属性也可以 -->
           </div>
         </div>
         <div class="layui-form-item">

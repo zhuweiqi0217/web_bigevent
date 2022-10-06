@@ -8,7 +8,9 @@ $.ajaxPrefilter(function (options) {
 
   // 统一为有权限的接口,设置 headers 请求头
   if (options.url.indexOf('/my/') !== -1) {
+    // 查找字符串中是否有某个字符: indexOf startsWith endsWith includes
     options.headers = {
+      // 经过调试, headers 属性是个自定义属性
       Authorization: localStorage.getItem('token') || ''
     }
   }

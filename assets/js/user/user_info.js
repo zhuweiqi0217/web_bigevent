@@ -15,34 +15,35 @@ $(function () {
   function initUserInfo() {
     $.ajax({
       method: 'GET',
-      url:'/my/userinfo',
+      url: '/my/userinfo',
       success(res) {
         if (res.status !== 0) return layer.msg(res.message)
         // console.log('ok')
         layer.msg(res.message)
         // 调用 form.val() 快速为表单赋值
-        form.val('formUserInfo',res.data)
+        form.val('formUserInfo', res.data)
       }
     })
   }
 
   // 重置表单的数据
-  $('#btnReset').on('click',function(e){
+  $('#btnReset').on('click', function (e) {
     // 阻止表单的默认重置行为
     e.preventDefault()
+    // 重新刷新用户信息
     initUserInfo()
   })
 
   // 监听表单的提交事件
-  $('.layui-form').on('submit',function(e){
+  $('.layui-form').on('submit', function (e) {
     e.preventDefault()
     // 发起ajax请求
     $.ajax({
       method: 'POST',
       url: '/my/userinfo',
-      data: $(this).serialize(),
-      success(res){
-        if(res.status !== 0) return layer.msg(res.message)
+      data: $(this).serialize(),  // 另一种快速获取参数 form.val('formUserInfo')
+      success(res) {
+        if (res.status !== 0) return layer.msg(res.message)
         layer.msg(res.message)
         // 调用父页面中的方法,重新渲染用户的头像和用户的信息
         window.parent.getUserInfo()
