@@ -10,13 +10,13 @@ body {
 }
 
 .layui-card-header {
-  font-size: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#form-add {
+#form-add,
+#form-edit {
   padding-top: 20px;
   padding-right: 30px;
 }
